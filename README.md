@@ -28,61 +28,62 @@ This kind of tool can be used by:
 -Educational institutions and career services.
 
 This is how you create code examples:
-```
-pip install scikit-learn pandas numpy
-import pandas as pd
-{
-# Sample career data
-careers = pd.DataFrame({
-    'career': ['Data Scientist', 'Web Developer', 'Digital Marketer', 'UX Designer'],
-    'skills': [
-        'python machine learning statistics data visualization',
-        'html css javascript react frontend backend',
-        'seo content marketing analytics branding',
-        'user research wireframing prototyping usability design thinking'
-    ]
-})
+    ```
+    pip install scikit-learn pandas numpy
+    import pandas as pd
+    {
+    # Sample career data
+    careers = pd.DataFrame({
+        'career': ['Data Scientist', 'Web Developer', 'Digital Marketer', 'UX Designer'],
+        'skills': [
+            'python machine learning statistics data visualization',
+            'html css javascript react frontend backend',
+            'seo content marketing analytics branding',
+            'user research wireframing prototyping usability design thinking'
+        ]
+    })
 
-# Simulated user input
-user_input = "I enjoy working with data, coding in Python, and analyzing trends"
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
+    # Simulated user input
+    user_input = "I enjoy working with data, coding in Python, and analyzing trends"
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    from sklearn.metrics.pairwise import cosine_similarity
 
-# Combine all text (career skills + user input)
-all_texts = careers['skills'].tolist() + [user_input]
+    # Combine all text (career skills + user input)
+    all_texts = careers['skills'].tolist() + [user_input]
 
-# Vectorize using TF-IDF
-vectorizer = TfidfVectorizer()
-tfidf_matrix = vectorizer.fit_transform(all_texts)
+    # Vectorize using TF-IDF
+    vectorizer = TfidfVectorizer()
+    tfidf_matrix = vectorizer.fit_transform(all_texts)
 
-# Compare user input (last vector) to all career skill vectors
-user_vector = tfidf_matrix[-1]
-career_vectors = tfidf_matrix[:-1]
+    # Compare user input (last vector) to all career skill vectors
+    user_vector = tfidf_matrix[-1]
+    career_vectors = tfidf_matrix[:-1]
 
-# Compute cosine similarities
-similarities = cosine_similarity(user_vector, career_vectors).flatten()
+    # Compute cosine similarities
+    similarities = cosine_similarity(user_vector, career_vectors).flatten()
 
-# Attach scores to the dataframe
-careers['match_score'] = similarities
+    # Attach scores to the dataframe
+    careers['match_score'] = similarities
+    
+    # Sort by similarity score
+    recommendations = careers.sort_values(by='match_score', ascending=False)
+    
+    # Show top 3 recommendations
+    print("Top Career Recommendations:")
+    print(recommendations[['career', 'match_score']].head(3))
+    }
 
-# Sort by similarity score
-recommendations = careers.sort_values(by='match_score', ascending=False)
+    Output (Example)
+    ------------------------------------------
+    | Top Career Recommendations:|           |
+    ------------------------------------------ 
+    |   Career                   |Match_score|
+    ------------------------------------------
+    |0  Data Scientist           |0.512      |
+    |1  Digital Marketer         |0.212      |
+    |2  Web Developer            |0.143      |
+    ------------------------------------------
 
-# Show top 3 recommendations
-print("Top Career Recommendations:")
-print(recommendations[['career', 'match_score']].head(3))
-}
-
-Output (Example)
-------------------------------------------
-| Top Career Recommendations:|           |
------------------------------------------- 
-|   Career                   |Match_score|
-------------------------------------------
-|0  Data Scientist           |0.512      |
-|1  Digital Marketer         |0.212      |
-|2  Web Developer            |0.143      |
-------------------------------------------
 ## Data sources and AI methods
 To train and support the system, we can use the following data:
 -O*NET Dataset (U.S. Department of Labor)
@@ -97,16 +98,16 @@ Used for testing and refining the recommendation engine.
 
 The system leverages the following techniques:
 ___________________________________________________________________________________________________________________________________
-|Component                   	|Method	                                            |Description                                    |
+|Component                   	|Method	                                            |Description                                   |
 |_________________________________________________________________________________________________________________________________|
-|Text Preprocessing	          |NLP (Tokenization, Stopword removal)	              |Clean and prepare free-text user input         |
+|Text Preprocessing	           |NLP (Tokenization, Stopword removal)	               |Clean and prepare free-text user input    |
 |---------------------------------------------------------------------------------------------------------------------------------|
-|Skill/Interest Representation|Embedding (e.g., TF-IDF, BERT)	                    |Convert skills and interests to vectors        |
+|Skill/Interest Representation |Embedding (e.g., TF-IDF, BERT)	                  |Convert skills and interests to vectors        |
 |---------------------------------------------------------------------------------------------------------------------------------|
 |Matching & Recommendations	  |Similarity Matching (Cosine Similarity, KNN)       |Identify the best-matching career paths        |
-|                             |or Classifier (Random Forest, Logistic Regression)	|                                               |
+|                             |or Classifier (Random Forest, Logistic Regression) |                                               |
 |---------------------------------------------------------------------------------------------------------------------------------|
-|Optional: Explanation       	|Attention or Feature Importance	                  |Help users understand why career is recommended|
+|Optional: Explanation       	|Attention or Feature Importance	              |Help users understand why career is recommended|
 |_________________________________________________________________________________________________________________________________|
 
 ## Challenges
