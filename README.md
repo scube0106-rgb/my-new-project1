@@ -3,19 +3,23 @@ created by Reaktor Innovations and University of Helsinki.
 Copy the template, paste it to your GitHub README and edit! -->
 
 # AI-Powered Career Path Recommender
+
 Final project for the Building AI course
 
 ## Summary
+
 Build an AI system that analyzes a user's skills, interests, and preferences to recommend personalized career paths or job roles. 
 This project aims to help users—especially students and professionals—identify suitable career paths based on their skills, interests, and preferences using AI.
 
 ## Background
+
 In today’s fast-paced and evolving job market, individuals—especially students and career changers—face the challenge of choosing a career that aligns with their skills, interests, and aspirations. 
 Traditional career counseling methods are limited by accessibility, scalability, and personalization.
 AI offers an opportunity to transform career guidance by analyzing individual profiles and massive labor market data to suggest tailored career paths. 
 An AI-powered career recommender system can bridge the gap between personal potential and market opportunities using data-driven insights.
 
 ## How is it used?
+
 The system acts as a virtual career counselor, enabling users to:
 -Input their skills, interests, and preferences.
 -Receive career path suggestions aligned with their profile.
@@ -85,55 +89,74 @@ This is how you create code examples:
     ------------------------------------------
 
 ## Data sources and AI methods
+
 To train and support the system, we can use the following data:
+
 -O*NET Dataset (U.S. Department of Labor)
 Contains job roles, required skills, tasks, and knowledge areas.
 Publicly available and widely used for career research.
+
 -Kaggle Datasets (e.g., career data, job titles, skill matrices)
 Often includes labeled job descriptions and career transitions.
+
 -Online Job Listings APIs
 E.g., LinkedIn, Indeed, or Glassdoor for real-time market trends.
+
 -Self-generated user input
 Used for testing and refining the recommendation engine.
 
 The system leverages the following techniques:
-    ___________________________________________________________________________________________________________________________________
-    |Component                    |Method	                                          |Description                                    |
-     ---------------------------------------------------------------------------------------------------------------------------------
-    |Text Preprocessing	          |NLP (Tokenization, Stopword removal)	              |Clean and prepare free-text user input         |
-    |Skill/Interest Representatio |Embedding (e.g., TF-IDF, BERT)	                  |Convert skills and interests to vectors        |
-    |Matching & Recommendations	  |Similarity Matching (Cosine Similarity, KNN)       |Identify the best-matching career paths        |
-    |                             |or Classifier (Random Forest, Logistic Regression) |                                               |
-    |Optional: Explanation        |Attention or Feature Importance	                  |Help users understand why career is recommended|
-    |_________________________________________________________________________________________________________________________________|
 
+    1.Text Preprocessing component using NLP (Tokenization, Stopword removal) method, Clean and prepare free-text user input.       
+   
+    2.Skill/Interest Representation component using Embedding (e.g., TF-IDF, BERT) method, Convert skills and interests to vectors.      
+    
+    3. Matching & Recommendations component using Similarity Matching (Cosine Similarity, KNN) or Classifier (Random Forest, Logistic Regression) method, Identify the best-matching career paths.        
+    
+    - Optional: Explanation, Attention or Feature Importance, Help users understand why career is recommended.
+    
 ## Challenges
+
 1.Data Quality & Consistency:
 Job data varies in format and terminology; mapping user inputs to standardized job skills is tricky.
+
 2.Subjectivity of Preferences:
 Interests and preferences are often qualitative and nuanced, making them hard to quantify.
+
 3.Cold Start Problem:
 For new users or rare skill combinations, recommendations may be less accurate.
+
 4.Bias and Fairness:
 Bias in historical job data can lead to biased recommendations (e.g., by gender or region).
+
 5.Scalability:
 Handling large, real-time datasets requires performance optimization.
 
 ## What next?
+
 1.Personalization at Scale:
 Use reinforcement learning to adapt recommendations based on user feedback.
+
 2.Resume & Document Parsing:
 Allow users to upload resumes for automatic skill extraction.
+
 3.Live Job Integration:
 Link recommendations to current job openings with matching scores.
+
 4.Localization & Diversity:
 Expand to include regional job markets and culturally relevant career options.
+
 5.AI Explainability:
 Provide transparent explanations for every recommendation to build trust.
 
 ## Acknowledgments
+
 We would like to acknowledge:
+
 -O*NET for providing comprehensive occupational data.
+
 -Kaggle Community for accessible datasets and career-related challenges.
+
 -OpenAI and Hugging Face for pre-trained language models and embeddings.
+
 -Instructors/Mentors of the Building AI course for guidance and inspiration.
