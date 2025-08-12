@@ -97,18 +97,18 @@ E.g., LinkedIn, Indeed, or Glassdoor for real-time market trends.
 Used for testing and refining the recommendation engine.
 
 The system leverages the following techniques:
-___________________________________________________________________________________________________________________________________
-|Component                   	|Method	                                            |Description                                   |
-|_________________________________________________________________________________________________________________________________|
-|Text Preprocessing	           |NLP (Tokenization, Stopword removal)	               |Clean and prepare free-text user input    |
-|---------------------------------------------------------------------------------------------------------------------------------|
-|Skill/Interest Representation |Embedding (e.g., TF-IDF, BERT)	                  |Convert skills and interests to vectors        |
-|---------------------------------------------------------------------------------------------------------------------------------|
-|Matching & Recommendations	  |Similarity Matching (Cosine Similarity, KNN)       |Identify the best-matching career paths        |
-|                             |or Classifier (Random Forest, Logistic Regression) |                                               |
-|---------------------------------------------------------------------------------------------------------------------------------|
-|Optional: Explanation       	|Attention or Feature Importance	              |Help users understand why career is recommended|
-|_________________________________________________________________________________________________________________________________|
+    ___________________________________________________________________________________________________________________________________
+    |Component                    |Method	                                          |Description                                    |
+    |_________________________________________________________________________________________________________________________________|
+    |Text Preprocessing	          |NLP (Tokenization, Stopword removal)	              |Clean and prepare free-text user input         |
+    
+    |Skill/Interest Representatio |Embedding (e.g., TF-IDF, BERT)	                  |Convert skills and interests to vectors        |
+    |
+    |Matching & Recommendations	  |Similarity Matching (Cosine Similarity, KNN)       |Identify the best-matching career paths        |
+    |                             |or Classifier (Random Forest, Logistic Regression) |                                               |
+  
+    |Optional: Explanation        |Attention or Feature Importance	                  |Help users understand why career is recommended|
+    |_________________________________________________________________________________________________________________________________|
 
 ## Challenges
 1.Data Quality & Consistency:
