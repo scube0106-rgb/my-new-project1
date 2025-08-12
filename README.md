@@ -31,7 +31,7 @@ This is how you create code examples:
 ```
 pip install scikit-learn pandas numpy
 import pandas as pd
-
+{
 # Sample career data
 careers = pd.DataFrame({
     'career': ['Data Scientist', 'Web Developer', 'Digital Marketer', 'UX Designer'],
@@ -71,15 +71,18 @@ recommendations = careers.sort_values(by='match_score', ascending=False)
 # Show top 3 recommendations
 print("Top Career Recommendations:")
 print(recommendations[['career', 'match_score']].head(3))
+}
 
 Output (Example)
-  Top Career Recommendations:
-           career       match_score
-0  Data Scientist          0.512
-2  Digital Marketer        0.212
-1  Web Developer           0.143
-
-
+------------------------------------------
+| Top Career Recommendations:|           |
+------------------------------------------ 
+|   Career                   |Match_score|
+------------------------------------------
+|0  Data Scientist           |0.512      |
+|1  Digital Marketer         |0.212      |
+|2  Web Developer            |0.143      |
+------------------------------------------
 ## Data sources and AI methods
 To train and support the system, we can use the following data:
 -O*NET Dataset (U.S. Department of Labor)
